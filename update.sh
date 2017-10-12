@@ -13,11 +13,11 @@ cd ${project}
 rm -rf vendor
 cp $GOPATH/src/github.com/lukasmacko/glideUpdater/glide.yaml .
 glide install --strip-vendor
-
-cd ..
 rm -rf .git
 
-tar -cvf data.tar ${project} 2>/dev/null
+cd ..
+
+tar -cf data.tar ${project} 
 cat > Dockerfile <<- "EOF"
 FROM alpine
 RUN mkdir updated
@@ -32,7 +32,6 @@ docker build -t ${IMG_NAME} .
 echo ${IMG_NAME} > ~/image
 
 echo "--------------------------------"
-echo "docker pull ${IMG_NAME}"
 echo "docker pull ${IMG_NAME}"
 echo "id=\$(docker create ${IMG_NAME})"
 echo "docker cp \$id:/updated/data.tar ."
