@@ -24,9 +24,8 @@ EOF
 
 tag=`date +%m%d%H%M%S`
 
-docker build -t lmacko1992/glideUpd:${tag} .
-docker push lmacko1992/glideUpd:${tag}
+docker build -t lmacko1992/glideupd:${tag} .
 
-echo "docker pull lmacko1992/glideUpd:${tag}"
+echo "docker pull lmacko1992/glideupd:${tag}"
 
 
