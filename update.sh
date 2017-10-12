@@ -10,6 +10,7 @@ mkdir -p ${clonePath}
 cd ${clonePath}
 git clone ${repo}
 cd ${project}
+git checkout ${commit}
 rm -rf vendor
 cp $GOPATH/src/github.com/lukasmacko/glideUpdater/glide.yaml .
 glide install --strip-vendor
