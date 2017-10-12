@@ -11,6 +11,22 @@ cd ${clonePath}
 git clone ${repo}
 cd ${project}
 rm -rf vendor
-cp $GOPATH/src/lukasmacko/glideUpdater/glide.yaml .
-glide install --strip-vendor
+cp $GOPATH/src/github.com/lukasmacko/glideUpdater/glide.yaml .
+glide install --strip-vedor
+
+cd ..
+tar -cvf data.tar ${project}
+cat > Dockerfile <<- "EOF"
+FROM alpine
+COPY data.tar
+EOF
+
+
+tag=`date +%m%d%H%M%S`
+
+docker build -t lmacko1992/glideUpd:${tag} .
+docker push lmacko1992/glideUpd:${tag}
+
+echo "docker pull lmacko1992/glideUpd:${tag}"
+
 
