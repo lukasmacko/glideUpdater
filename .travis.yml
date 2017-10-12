@@ -6,7 +6,7 @@ go:
    - 1.9.x
 
 before_install:
-   - apt-get install glide
+   - sudo apt-get install glide
 
 script:
    - update.sh
