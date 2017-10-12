@@ -1,0 +1,4 @@
+package something
+
+func doSomething() {
+}

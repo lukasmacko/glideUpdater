@@ -11,6 +11,6 @@ cd ${clonePath}
 git clone ${repo}
 cd ${project}
 rm -rf vendor
-cp ~/glideUpdater/glide.yaml .
+cp $GOPATH/src/lukasmacko/glideUpdater/glide.yaml .
 glide install --strip-vendor
 
