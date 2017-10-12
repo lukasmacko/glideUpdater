@@ -15,7 +15,9 @@ cp $GOPATH/src/github.com/lukasmacko/glideUpdater/glide.yaml .
 glide install --strip-vendor
 
 cd ..
-tar -cvf data.tar ${project}
+rm -rf .git
+
+tar -cvf data.tar ${project} 2>/dev/null
 cat > Dockerfile <<- "EOF"
 FROM alpine
 RUN mkdir updated
@@ -24,10 +26,16 @@ EOF
 
 
 tag=`date +%m%d%H%M%S`
+IMG_NAME=lmacko1992/glideupd:${tag}
 
-docker build -t lmacko1992/glideupd:${tag} .
-echo lmacko1992/glideupd:${tag} > ~/image
+docker build -t ${IMG_NAME} .
+echo ${IMG_NAME} > ~/image
 
-echo "docker pull lmacko1992/glideupd:${tag}"
+echo "--------------------------------"
+echo "docker pull ${IMG_NAME}"
+echo "docker pull ${IMG_NAME}"
+echo "id=\$(docker create ${IMG_NAME})"
+echo "docker cp \$id:/updated/data.tar ."
+echo "docker rm -v \$id"
 
 
