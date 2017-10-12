@@ -12,7 +12,7 @@ git clone ${repo}
 cd ${project}
 rm -rf vendor
 cp $GOPATH/src/github.com/lukasmacko/glideUpdater/glide.yaml .
-glide install --strip-vedor
+glide install --strip-vendor
 
 cd ..
 tar -cvf data.tar ${project}
