@@ -9,4 +9,4 @@ before_install:
    - sudo curl https://glide.sh/get | sh 
 
 script:
-   - update.sh
+   - ./update.sh
