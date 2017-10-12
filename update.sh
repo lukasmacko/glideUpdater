@@ -18,7 +18,8 @@ cd ..
 tar -cvf data.tar ${project}
 cat > Dockerfile <<- "EOF"
 FROM alpine
-COPY data.tar
+RUN mkdir updated
+COPY data.tar updated/
 EOF
 
 
