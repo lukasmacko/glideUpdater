@@ -18,7 +18,6 @@ import:
   version: kubernetes-1.8.0
 - package: github.com/hashicorp/golang-lru
   version: 0a025b7e63adc15a622f29b0b2c4c3848243bbf6
-
 - package: golang.org/x/net
   version: c8c74377599bd978aee1cf3b9b63a8634051cec2 # selected by glide
 - package: golang.org/x/text
