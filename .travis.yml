@@ -5,6 +5,7 @@ go:
 - 1.9.x
 before_install:
 - sudo curl https://glide.sh/get | sh
+- go get -u github.com/golang/dep/cmd/dep
 script:
 - "./update.sh"
 after_success:

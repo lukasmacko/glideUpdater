@@ -14,7 +14,7 @@ git checkout ${commit}
 rm -rf vendor
 rm -f glide.lock
 cp $GOPATH/src/github.com/lukasmacko/glideUpdater/glide.yaml .
-glide install --strip-vendor
+dep init -v
 rm -rf .git
 
 cd ..
