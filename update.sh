@@ -8,7 +8,7 @@ commit=$(echo $config | cut -d ' ' -f 4)
 cd $GOPATH/src
 mkdir -p ${clonePath}
 cd ${clonePath}
-git clone ${repo}
+git clone ${repo} ${project}
 cd ${project}
 git checkout ${commit}
 rm -rf vendor
